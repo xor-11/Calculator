@@ -1,0 +1,308 @@
+Calculator:
+
+<Calculator>:
+    ScrollView:
+        size_hint: 0.75,0.2
+        AnchorLayout:
+            text_size: None,self.height
+            size_hint_x: None
+            anchor_y: "center"
+            anchor_x: "center"
+            width: display_1.width
+
+            Label:
+                id: display_1
+                text : root.display
+
+                size_hint: None,None
+                size: self.texture_size
+                font_size: "40dp"
+                color: 1,0.547,0.2,1
+                font_name: "fonts/QueensidesMedium-x30zV.ttf"
+
+    GridLayout:
+        size_hint: 0.25,0.2
+        rows: 2
+        cols: 1
+        MDTextField:
+            hint_text : "LCM (a,b)"
+            on_text_validate: root.lcm1(self)
+            #mode: "rectangle"
+
+
+        MDTextField:
+            hint_text: "GCD (a,b)"
+            #mode: "rectangle"
+            on_text_validate: root.gcd1(self)
+
+    BoxLayout:
+        size_hint: 0.25,0.2
+        Button:
+            text : "1"
+            on_press: root.b1()
+            font_name: "fonts/Lcd.ttf"
+            font_size: "50dp"
+            color: 0, 100, 94.1, 1
+            background_color: 0,0,0,0
+
+
+    Button:
+        text : "2"
+        font_name: "fonts/Lcd.ttf"
+        size_hint: 0.25,0.2
+        on_press: root.b2()
+        font_size: "50dp"
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "3"
+        font_name: "fonts/Lcd.ttf"
+        size_hint: 0.25,0.2
+        on_press: root.b3()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+        font_size: "50dp"
+
+    GridLayout:
+        size_hint: 0.25,0.2
+        rows: 2
+        cols: 1
+        MDTextField:
+            hint_text : "IsPrime"
+            on_text_validate: root.isprime1(self)
+            #mode: "rectangle"
+
+        MDTextField:
+            hint_text : "Factors"
+            on_text_validate: root.factors1(self)
+            #mode: "rectangle"
+
+    Button:
+        text : "4"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b5()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "5"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b6()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "6"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b7()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+    GridLayout:
+        size_hint: 0.25,0.2
+        rows : 2
+        cols : 2
+        Button:
+            text : "^"
+            font_name: "fonts/Lcd.ttf"
+            font_size: "30dp"
+            on_press: root.exp()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        StackLayout:
+
+
+            Button:
+#                size_hint: 1,4/5
+                text : "sin" if root.a == True else "sin^-1"
+                font_name: "fonts/QueensidesMedium-x30zV.ttf"
+                font_size: "15dp"
+                on_press: root.sin() if root.a == True else root.arcsin()
+                color : 0.224,1,0.078
+                background_color: 0,0,0,0
+#           Label:
+#                size_hint: 1,1/5
+#
+#                text: "sin^-1"
+#                font_name: "fonts/QueensidesMedium-x30zV.ttf"
+#                font_size: "10dp"
+
+        Button:
+            text : "cos" if root.a == True else "cos^-1"
+            font_name: "fonts/QueensidesMedium-x30zV.ttf"
+            font_size: "15dp"
+            on_press: root.cos() if root.a == True else root.arccos()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : "tan" if root.a == True else "tan^-1"
+            font_name: "fonts/QueensidesMedium-x30zV.ttf"
+            font_size: "15dp"
+            on_press: root.tan() if root.a == True else root.arctan()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+
+
+
+    Button:
+        text : "7"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b9()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "8"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b10()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "9"
+        font_size: "50dp"
+        font_name: "fonts/Lcd.ttf"
+        size_hint: 0.25,0.2
+        on_press: root.b11()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+    GridLayout:
+        size_hint: 0.25,0.2
+        rows: 2
+        cols: 2
+
+        Button:
+            text : "+"
+            font_name: "fonts/Lcd.ttf"
+            on_press: root.b4()
+            font_size: "30dp"
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : "-"
+            font_name: "fonts/Lcd.ttf"
+            font_size: "30dp"
+            on_press: root.b8()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : "*"
+            font_name: "fonts/Lcd.ttf"
+            font_size: "30dp"
+            on_press: root.b12()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : "/"
+            font_size: "30dp"
+            font_name: "fonts/Lcd.ttf"
+            on_press: root.b16()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+
+    GridLayout:
+        size_hint: 0.25,0.2
+        rows : 2
+        cols: 2
+        Button:
+            text : "("
+            font_size: "20dp"
+            font_name: "fonts/Lcd.ttf"
+            on_press: root.b13()
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : ")"
+            font_size: "20dp"
+            font_name: "fonts/Lcd.ttf"
+
+            color : 0.224,1,0.078
+            on_press: root.rightb()
+            background_color: 0,0,0,0
+
+
+
+
+    Button:
+        text : "0"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b14()
+        color: 0, 100, 94.1, 1
+        background_color: 0,0,0,0
+
+    Button:
+        text : "="
+        font_name: "fonts/Lcd.ttf"
+        font_size: "50dp"
+        size_hint: 0.25,0.2
+        on_press: root.b15()
+        color : 0.224,1,0.078
+        background_color: 0,0,0,0
+
+    BoxLayout:
+        size_hint: 0.25/2,0.2
+        orientation: "vertical"
+        Button:
+            text : "<--"
+            on_press: root.backspace()
+            font_name: "fonts/Lcd.ttf"
+            font_size: "20dp"
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+        Button:
+            text : "."
+            on_press: root.dot()
+            font_name: "fonts/Lcd.ttf"
+            font_size: "30dp"
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+    BoxLayout:
+        orientation : "vertical"
+        size_hint: 0.25/2,0.2
+        Button:
+            text : "CLS"
+            on_press : root.clear()
+            font_name: "fonts/Lcd.ttf"
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+            font_size: "20dp"
+        Button:
+            text : "Fx"
+            on_press : root.special()
+            font_name: "fonts/Lcd.ttf"
+            color : 0.224,1,0.078
+            background_color: 0,0,0,0
+            font_size: "20dp"
+    Widget:
+        canvas:
+            Color:
+                rgba : 0.135,0.206,0.235,0.75
+            Line:
+                rectangle: (0,0,(self.width-4)/4,4*self.height/5)
+            Line:
+                rectangle: (0,0,2*(self.width-4)/4,4*self.height/5)
+            Line:
+                rectangle: (0,0,3*(self.width-4)/4,4*self.height/5)
+            Line:
+                rectangle: (0,0,3*(self.width-4)/4,3*self.height/5)
+            Line:
+                rectangle: (0,0,3*(self.width-4)/4,2*self.height/5)
+            Line:
+                rectangle: (0,0,3*(self.width-4)/4,1*self.height/5)
+            Line:
+                rectangle: (0,0,1*(self.width-4)/8,1*self.height/5)
+
+
+
